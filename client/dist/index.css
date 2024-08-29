@@ -1,0 +1,43 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(8, 3, 3, 0.87);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#header-name{
+  text-align: center;
+}
+#header2{
+  text-align: center;
+}
+#Julio{
+
+  width: 10%;
+  height:10%;border-radius: 50%;
+	background-color: #ddd;
+	margin-left: 5px;
+	flex-shrink: 0;
+	overflow: hidden;
+}
+#julio-pic{
+  text-align: center;
+}
+#title_container{
+  padding: 20px;
+  border-radius: 10px;
+}
+#bar{
+  background-color: darkgray;
+  padding: .1%;
+  
+  color:darkgray;
+  
+}

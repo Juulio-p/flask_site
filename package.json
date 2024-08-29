@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "serverless-wsgi": "^3.0.4"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "serverless-finch": "^4.0.4"
+  },
+  "name": "first_flask",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
