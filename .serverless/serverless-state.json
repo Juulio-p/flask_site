@@ -208,7 +208,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/firstapplication/dev/1724726082276-2024-08-27T02:34:42.276Z/firstapplication.zip"
+                "S3Key": "serverless/firstapplication/dev/1727470763717-2024-09-27T20:59:23.717Z/firstapplication.zip"
               },
               "Handler": "wsgi_handler.handler",
               "Runtime": "python3.8",
@@ -226,14 +226,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionRtGK8vIySfc7T7i9RtwVnpTO1qGsnF3FCd0K4VA0k": {
+          "ApiLambdaVersionTHtwvEKbxB7nYSy96SUHkcaTcNFtc9czRXurJPuxI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "+sLERAmM+LBagpUDuEl6/6QR7c7Wv3MfwP0Qe7qVCtM="
+              "CodeSha256": "0INgg4iOtex7+yFix2jtyqLwpzrvLqwZ5bbaUBKdDn0="
             }
           },
           "HttpApi": {
@@ -363,7 +363,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionRtGK8vIySfc7T7i9RtwVnpTO1qGsnF3FCd0K4VA0k"
+              "Ref": "ApiLambdaVersionTHtwvEKbxB7nYSy96SUHkcaTcNFtc9czRXurJPuxI"
             },
             "Export": {
               "Name": "sls-firstapplication-dev-ApiLambdaFunctionQualifiedArn"
@@ -494,7 +494,7 @@
         "app": "app.app"
       },
       "client": {
-        "bucketName": "juulio99bucket"
+        "bucketName": "prudenciojulio.com"
       }
     },
     "plugins": [
@@ -517,7 +517,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionRtGK8vIySfc7T7i9RtwVnpTO1qGsnF3FCd0K4VA0k"
+        "versionLogicalId": "ApiLambdaVersionTHtwvEKbxB7nYSy96SUHkcaTcNFtc9czRXurJPuxI"
       }
     },
     "resources": {
@@ -577,7 +577,7 @@
     "artifact": "/home/poky/Programming/first_flask/.serverless/firstapplication.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/firstapplication/dev/1724726082276-2024-08-27T02:34:42.276Z",
+    "artifactDirectoryName": "serverless/firstapplication/dev/1727470763717-2024-09-27T20:59:23.717Z",
     "artifact": "firstapplication.zip"
   }
 }

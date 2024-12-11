@@ -15,7 +15,7 @@
 
 
 	  var endpoint = 'https://biil7bvmei.execute-api.us-east-1.amazonaws.com'	 
-	  
+
 	  function get_creds(){
 		  $.getJSON( endpoint + "/get_cred?name=" + $('#txtbox').val() + "&password=" + $('#psw').val()
 			  , function (data) {
@@ -54,16 +54,36 @@
 	<div id ="bar" >    want</div>
 	<body>
 
+		<div class="topnav">
+			<a class="active" href="#home">Home</a>
+			<a href="#contact">Contact</a>
+			<a href="#about">About</a>
+		  </div>
+
+
 		
 	<h1 id="header-name"> Julio C Prudencio</h1>
 	<h2 id="header2"> Portfolio Website
 		<br>
-	<a href="https://github.com/Juulio-p"> Github: Juulio-p</a>	
+		<div id="julio-pic">
+			<img id="Julio" src="https://media.licdn.com/dms/image/v2/D5603AQGj2RR0f6ROCA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715369389065?e=1729728000&v=beta&t=QUFo8M-ti_Fa_LWrSoeHYXG14w6unQN4vV8b2no9vT8">
+		</div>
+	
+	<a href="https://github.com/Juulio-p">
+			<img src="/static/imgs/githubLogo.png" id="gitlogobig" />
+	</a>
+	<a href="https://www.linkedin.com/in/julio-prudencio-b29681213/"> 
+		<img src="/static/imgs/LinkedIn_logo_initials.png" id="LinkedIn_logo" /> 
+	</a>
+	
+<pre>
+_   _      _ _        __        __         _     _ _ 
+| | | | ___| | | ___   \ \      / /__  _ __| | __| | |
+| |_| |/ _ \ | |/ _ \   \ \ /\ / / _ \| '__| |/ _` | |
+|  _  |  __/ | | (_) |   \ V  V / (_) | |  | | (_| |_|
+|_| |_|\___|_|_|\___/     \_/\_/ \___/|_|  |_|\__,_(_)
+</pre>
 	</h2>
-
-	<div id="julio-pic">
-		<img id="Julio" src="https://media.licdn.com/dms/image/v2/D5603AQGj2RR0f6ROCA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715369389065?e=1729728000&v=beta&t=QUFo8M-ti_Fa_LWrSoeHYXG14w6unQN4vV8b2no9vT8">
-	</div>
 
 	</div>
 
@@ -78,13 +98,17 @@
 	</p>
 	
 	<h4> Projects</h4>
+	</a>
 	<h5> Functional Login Page</h5>
 	<p> Functional CRUD Login page  connected to amazon's dynamo db. Data is processed using boto3,
 		this is part of a this serverless framework that utilizes, aws technologies such as dynamodb, lambda, and api gateway. 
 		this serves to show knowledge of these technologies as well as basic concepts such as routing with python and flask. Also 
-		of course with basic knowledge of javascript, html, and css.  
+		of course with basic knowledge of javascript, html, and css. Link to Project Repository Below. 
 	</p>
+	<a href="https://github.com/Juulio-p/portfolio_web" id="gitlogo">
+		<img src="imgs/githubLogo.png" id="gitlogo" />
 	<br>
+	</a>
 	<h3>Please Log in to see the rest of Website</h3>
 
 	<h6> Please enter a Name and password to register this information is then passed to dynamodb,
@@ -102,6 +126,12 @@
 
 	<a href="https://biil7bvmei.execute-api.us-east-1.amazonaws.com/static/auth_page.html"> Or click here if yu dont want to use login</a>	
 	<div id ="bar" >    want</div>
+
+	<a href= "https://juulio-p.github.io/Website/" >
+		<h5>
+			Other Web page under contruction
+		</h5>
+	</a> 
 
 
 

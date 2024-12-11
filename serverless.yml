@@ -35,12 +35,12 @@ functions:
       - httpApi: "*"
      
 
+
 custom:
   wsgi:
     app: app.app
   client:
-    bucketName: juulio99bucket
-
+    bucketName: prudenciojulio.com
 
     	
 resources:
