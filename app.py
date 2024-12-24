@@ -1,5 +1,4 @@
-from flask import Flask, redirect, url_for, jsonify , request, render_template
-
+from flask import Flask, redirect, url_for, jsonify , request, render_template, send_from_directory
 import logging
 # create logger
 logger = logging.getLogger(__name__)
@@ -15,9 +14,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-app = Flask(__name__) 
-
-
+app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
 
 @app.route('/del_name')
 def del_name():
@@ -90,7 +87,9 @@ def register_user():
 
 @app.route('/')
 def redir_to_static_home():
-    return redirect('/static/index.html')
+    return send_from_directory(app.static_folder, "index.html" )
+    
+    #return redirect('/static/index.html')
 
 
 if __name__ == '__main__': 
