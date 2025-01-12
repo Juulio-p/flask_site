@@ -85,12 +85,21 @@ def register_user():
     return jsonify(status="ok", name=request.args.get('name') , password=request.args.get('password'))
 
 
-@app.route('/')
-def redir_to_static_home():
-    return send_from_directory(app.static_folder, "index.html" )
-    
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react(path):
+    try:
+        return send_from_directory(app.static_folder, "index.html")
+    except Exception as e:
+        return jsonify(error="File not found", details=str(e)), 404
     #return redirect('/static/index.html')
 
+
+
+#below is for serving react routes 
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
 if __name__ == '__main__': 
 
