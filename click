@@ -1,0 +1,1 @@
+/home/poky/Programming/first_flask/.requirements/click

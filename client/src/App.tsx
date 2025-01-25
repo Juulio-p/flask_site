@@ -4,7 +4,7 @@ import { LeadGrid } from './LeadGrid';
 import { ContactUs } from './ContactUs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import TierGrid from './TierGrid';
+import TierCard from './TierCard';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
     <Route path="/" element={
     <>
     <LeadGrid />
-    <TierGrid />
+    <TierCard />
     
     </>} 
     />

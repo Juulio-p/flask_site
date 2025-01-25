@@ -1,10 +1,10 @@
-import { Container, Grid, SimpleGrid } from '@mantine/core';
+import { Container, Grid, SimpleGrid, Space } from '@mantine/core';
 import { Button } from '@mantine/core';
 import Detailpic from './Detailpic';
-
 export function LeadGrid() {
 
   return (
+    <>
     <Container my="md">
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
         <Detailpic />
@@ -23,14 +23,14 @@ export function LeadGrid() {
     Appointments
   </Button>
 </a>
-
-
-
             
           </Grid.Col>
           
         </Grid>
       </SimpleGrid>
+
+
+
 
 
       
@@ -39,5 +39,41 @@ export function LeadGrid() {
 
 
     </Container>
+
+
+      <Space h={35}/> 
+
+
+<div style={{ display:'flex', alignItems:'flex-start' }}>
+  
+ <div>
+    <span style={{ color:'green', marginTop: 0 , marginBottom:0 , textAlign: 'left' , display: 'block' }}>Picture Perfect Ride</span>
+    <h2 style={{ marginTop: 0 , marginBottom:0 , display: 'block' , textAlign:'left' }}> Let The experts handle this</h2>
+    <p style={{ marginTop: 0 , marginBottom:0 , display: 'block', textAlign:'left' }}> Car detailing is a meticulous process that restores and protects a vehicle's interior and exterior, enhancing its appearance and preserving its value. This comprehensive service
+    each aspect of the car is attended to, resulting in a vehicle that not only looks  pristine but also maintains its longevity. </p>
+ </div>
+ <img
+  src="/Logo.png"
+  alt="Alwayz OriginalLogo"
+    
+    style={{
+      borderRadius: '10px', // Ensure this is a valid value
+      maxHeight: '125px',
+    }}
+   
+  />
+
+
+</div>
+<Space h={30}/> 
+
+
+
+
+
+
+</>
+
+    
   );
 }
