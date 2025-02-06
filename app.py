@@ -19,6 +19,15 @@ app = Flask(__name__, static_folder="client/dist", static_url_path="/")
 
 
 
+# Make the route for the /contact-us
+
+@app.route('/contact-us')
+def contact(): 
+    clientdb = boto3.client('dynamodb')
+    #response = clientdb.
+
+
+
 
 @app.route('/del_name')
 def del_name():
