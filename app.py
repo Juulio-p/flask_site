@@ -10,11 +10,15 @@ formatter = logging.Formatter('%(asctime)s - %(name)s %(funcName)s():%(lineno)i:
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
+
 import boto3
 from botocore.exceptions import ClientError
 
 
 app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
+
+
+
 
 @app.route('/del_name')
 def del_name():
