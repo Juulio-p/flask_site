@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, jsonify , request, render_template, send_from_directory
 import logging
+from flask_cors import CORS
 # create logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -13,18 +14,15 @@ logger.addHandler(ch)
 
 import boto3
 from botocore.exceptions import ClientError
+clientdb = boto3.client('dynamodb' , region_name="us-east-1")
+
 
 
 app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
-
+CORS(app)
 
 
 # Make the route for the /contact-us
-
-@app.route('/contact-us')
-def contact(): 
-    clientdb = boto3.client('dynamodb')
-    #response = clientdb.
 
 
 
@@ -34,7 +32,7 @@ def del_name():
 
     #client = boto3.client('s3')
     #client.delete_object(Bucket='fav-name-storage' , Key= 'fav-name.txt')
-    clientdb = boto3.client('dynamodb')
+    #clientdb = boto3.client('dynamodb')
     
     response = clientdb.delete_item(
         TableName='tblname2',
@@ -49,7 +47,7 @@ def del_name():
 
 @app.route('/get_cred')
 def get_cred():
-    clientdb = boto3.client('dynamodb')
+    #clientdb = boto3.client('dynamodb')
     try:
         response = clientdb.get_item(
             TableName='tblname2',
@@ -74,8 +72,56 @@ def get_cred():
 #    except: 
 #        return jsonify(status='error')
 
+#**************************** NEW frontend apis *******************
+#******************************************************************
+#******************************************************************
+import datetime
+
+x = datetime.datetime.now()
+
+@app.route('/data')
+def get_time():
+
+    # Returning an api for showing in  reactjs
+    return jsonify ({
+        'Name':"geek", 
+        "Age":"22",
+        "Date":x, 
+        "programming":"python"
+        })
 
 
+@app.route('/contact-us', methods=['POST'])
+def contact(): 
+    clientdb = boto3.client('dynamodb' , region_name="us-east-1")
+
+    # Get JSON data from request
+    data = request.json
+    email = data.get('email')
+    name = data.get('name')
+    message = data.get('message')
+    print(f"Received Name: {name}, Email: {email} , Message: {message}")
+
+
+    if not email or not name or not message:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    # Insert data into DynamoDB
+    response = clientdb.put_item(
+        TableName='tblname2', 
+        Item={
+
+            'email': {'S': email}, 
+            'userId': {'S': name},
+            'msg': {'S': message}
+        }
+    )
+
+    return jsonify({"message": "Message saved successfully"}), 200
+    
+#******************************************************************
+#******************************************************************
+#******************************************************************
 
 
 @app.route('/register_user')
