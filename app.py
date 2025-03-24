@@ -1,6 +1,5 @@
 from flask import Flask, redirect, url_for, jsonify , request, render_template, send_from_directory
 import logging
-from flask_cors import CORS
 # create logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -19,7 +18,6 @@ clientdb = boto3.client('dynamodb' , region_name="us-east-1")
 
 
 app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
-CORS(app)
 
 
 # Make the route for the /contact-us
@@ -75,20 +73,7 @@ def get_cred():
 #**************************** NEW frontend apis *******************
 #******************************************************************
 #******************************************************************
-import datetime
 
-x = datetime.datetime.now()
-
-@app.route('/data')
-def get_time():
-
-    # Returning an api for showing in  reactjs
-    return jsonify ({
-        'Name':"geek", 
-        "Age":"22",
-        "Date":x, 
-        "programming":"python"
-        })
 
 
 @app.route('/contact-us', methods=['POST'])
@@ -153,12 +138,7 @@ def serve_react(path):
         return jsonify(error="File not found", details=str(e)), 404
     #return redirect('/static/index.html')
 
-
-
-#below is for serving react routes 
-@app.errorhandler(404)
-def not_found(e):
-    return app.send_static_file('index.html')
+ 
 
 if __name__ == '__main__': 
 

@@ -8,6 +8,7 @@ provider:
   name: aws
   runtime: python3.8
   stage: ${opt:stage, 'dev'}
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -33,16 +34,17 @@ functions:
     handler: wsgi_handler.handler
     events:
       - httpApi: "*"
-     
-
+      
+    
 custom:
   wsgi:
     app: app.app
   client:
-    bucketName: prudenciojulio.com
+    bucketName: juulio99bucket
+    errorDocument: index.html
+
     
 
-    	
 resources:
   Resources:
     tblname2:
