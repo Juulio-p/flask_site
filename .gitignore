@@ -11,3 +11,4 @@ jinja2/
 werkzeug/
 node_modules
 orginKey
+.serverless/*.zip
