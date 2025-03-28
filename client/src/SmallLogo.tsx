@@ -1,4 +1,4 @@
-const Logo: React.FC = () => (
+const SmallLogo: React.FC = () => (
 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}> 
   <img
   src="/z.png"
@@ -6,10 +6,10 @@ const Logo: React.FC = () => (
     
     style={{
       borderRadius: '10px', // Ensure this is a valid value
-      maxHeight: '70px',
+      maxHeight: '50px',
     }}
    
   />
 </div>
 );
-export default Logo
+export default SmallLogo

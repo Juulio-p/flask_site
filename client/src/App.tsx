@@ -5,6 +5,8 @@ import { ContactUs } from './ContactUs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import TierCard from './TierCard';
+import Frontpage from './Frontpage';
+import { Footer } from './Footer';
 
 function App() {
 
@@ -19,8 +21,13 @@ function App() {
        
     <Route path="/" element={
     <>
-    <LeadGrid />
+    
+    <Frontpage />
     <TierCard />
+    <Footer/>
+
+
+
     
     </>} 
     />
