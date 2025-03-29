@@ -1,7 +1,6 @@
 import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Anchor, Group } from '@mantine/core';
 import classes from './Footer.module.css';
-import Logo from './Logo';
 import SmallLogo from './SmallLogo';
 
 const links = [

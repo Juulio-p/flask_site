@@ -1,7 +1,11 @@
 import React from "react";
 import { Button, Space } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 const Frontpage: React.FC = () => {
+
+
+  const nav = useNavigate(); 
   return (
     <div
     style={{
@@ -19,7 +23,11 @@ const Frontpage: React.FC = () => {
     }}
   >
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+
+
+        <a onClick={() => nav('/Company_Login')} > 
         <Button size="xl" style={{ width: "250px" }}>Need Hire</Button>
+        </a>
         <Button size="xl" style={{ width: "250px" }}>Need Work</Button>
       </div>
       <Space h={35} />

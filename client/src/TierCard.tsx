@@ -1,5 +1,5 @@
 
-import { Card, Image, Text, Badge, Button, Group , Space} from '@mantine/core';
+import { Card, Image, Text, Badge, Group , Space} from '@mantine/core';
 
 
 function TierCard() {
