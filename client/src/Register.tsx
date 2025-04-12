@@ -4,7 +4,11 @@ import { notifications } from '@mantine/notifications';
 import styles from './Register.module.css'; // Import the CSS module
 import { createUserWithEmailAndPassword} from "firebase/auth"
 import {auth} from "./firebase/config"
+import { useNavigate } from 'react-router-dom';
+
 export function Register() {
+  const nav = useNavigate();
+
 
     var endpoint= "https://x6whi4ttv3.execute-api.us-east-1.amazonaws.com";
     const form = useForm({
@@ -38,13 +42,17 @@ export function Register() {
           };
           console.log("Payload being sent to API:", payload);
 
-        await fetch(`${endpoint}/Register`, {
+        const response = await fetch(`${endpoint}/Register`, {
           method: "POST",
           headers: {
             "Content-Type" : "application/json",
           },
           body: JSON.stringify(payload ), // Pass the form values directly
         });
+        if(response.ok){
+          nav('/Company_Login')
+
+        }
 
 
 

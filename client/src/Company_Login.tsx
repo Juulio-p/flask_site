@@ -29,7 +29,7 @@ import { useNavigate } from 'react-router-dom';
   
           <Text ta="center" mt="md">
             Don&apos;t have an account?{' '}
-            <Anchor<'a'> href="#" fw={700} onClick={() => nav('/Register')}>
+            <Anchor<'a'>  fw={700} onClick={() => nav('/Register')}>
               Register
             </Anchor>
           </Text>
