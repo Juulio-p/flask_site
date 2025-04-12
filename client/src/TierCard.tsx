@@ -1,5 +1,5 @@
 
-import { Card, Image, Text, Badge, Group , Space} from '@mantine/core';
+import { Card, Image, Text, Group , Space} from '@mantine/core';
 
 
 function TierCard() {
@@ -39,14 +39,12 @@ function TierCard() {
             <Image
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY2A4jexpmMBQ1FVIr3FU1P0h17v8nG0cgWw&s"
               height={320}
-              alt="Norway"
             />
           </Card.Section>
 
           
           <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500}>Tier 2</Text>
-            <Badge color="pink">Value!</Badge>
+            <Text fw={500}>Company Bananna</Text>
           </Group>
 
           <Text size="sm" c="dimmed">
@@ -65,14 +63,12 @@ function TierCard() {
             <Image
               src="https://media.istockphoto.com/id/1687997725/vector/initial-letter-ai-modern-logo-design-artificial-intelligence-icon-vector-illustration.jpg?s=612x612&w=0&k=20&c=gu15-BVIN8egl0PKSVPHEOIZnM1YCeQkyyDuiCQDM1w="
               height={320}
-              alt="Norway"
             />
           </Card.Section>
 
           
           <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500}>Tier 3</Text>
-            <Badge color="pink">Best Value!</Badge>
+            <Text fw={500}>Alternate Intrest</Text>
           </Group>
 
           <Text size="sm" c="dimmed">

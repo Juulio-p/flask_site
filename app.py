@@ -1,6 +1,5 @@
 from flask import Flask, redirect, url_for, jsonify , request, render_template, send_from_directory
 import logging
-from flask_cors import CORS
 # create logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -19,7 +18,6 @@ clientdb = boto3.client('dynamodb' , region_name="us-east-1")
 
 
 app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
-CORS(app)
 
 
 # Make the route for the /contact-us
@@ -75,21 +73,6 @@ def get_cred():
 #**************************** NEW frontend apis *******************
 #******************************************************************
 #******************************************************************
-import datetime
-
-x = datetime.datetime.now()
-
-@app.route('/data')
-def get_time():
-
-    # Returning an api for showing in  reactjs
-    return jsonify ({
-        'Name':"geek", 
-        "Age":"22",
-        "Date":x, 
-        "programming":"python"
-        })
-
 
 @app.route('/contact-us', methods=['POST'])
 def contact(): 
@@ -114,6 +97,36 @@ def contact():
             'email': {'S': email}, 
             'userId': {'S': name},
             'msg': {'S': message}
+        }
+    )
+
+    return jsonify({"message": "Message saved successfully"}), 200
+
+
+
+@app.route('/Register', methods=['POST'])
+def Register(): 
+    clientdb = boto3.client('dynamodb' , region_name="us-east-1")
+
+    # Get JSON data from request
+    data = request.json
+    email = data.get('email')
+    name = data.get('name')
+    Company = data.get('Company')
+    print(f"Received Name: {name}, Email: {email} , Company: {Company}")
+
+
+    if not email or not name or not Company:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    # Insert data into DynamoDB
+    response = clientdb.put_item(
+        TableName='tblname2', 
+        Item={
+
+            'email': {'S': email}, 
+            'userId': {'S': name},
+            'Company': {'S': Company}
         }
     )
 

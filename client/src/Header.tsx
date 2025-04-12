@@ -18,7 +18,7 @@ import classes from './Header.module.css';
 import Logo from './Logo';
 
 const user = {
-  name: 'Jane Spoonfighter',
+  name: 'Anonymous',
   email: 'janspoon@fighter.dev',
   image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-5.png',
 };

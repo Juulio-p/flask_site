@@ -33,7 +33,7 @@ function App() {
     </>} 
     />
 
-    <Route path="/Company_Login" element={ <Company_Login/> } /> 
+      <Route path="/Company_Login" element={ <Company_Login/> } /> 
 
       
       <Route path="/contact-us" element={<ContactUs /> } /> 
