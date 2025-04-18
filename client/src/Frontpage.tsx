@@ -26,9 +26,9 @@ const Frontpage: React.FC = () => {
 
 
         <a onClick={() => nav('/Company_Login')} > 
-        <Button size="xl" style={{ width: "250px" }}>Need Hire</Button>
+        <Button size="l" style={{ width: "250px" }}>Need Hire</Button>
         </a>
-        <Button size="xl" style={{ width: "250px" }}>Need Work</Button>
+        <Button size="l" style={{ width: "250px" }}>Need Work</Button>
       </div>
       <Space h={35} />
     </div>

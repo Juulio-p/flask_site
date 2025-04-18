@@ -98,6 +98,7 @@ return (
                   placeholder="Your email"
                   {...form.getInputProps('email')}
                   className={styles.formInput}
+                  
                 />
                <TextInput
                label="Password"
