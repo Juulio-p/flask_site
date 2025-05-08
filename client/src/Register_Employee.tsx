@@ -4,22 +4,21 @@ import { notifications } from '@mantine/notifications';
 import styles from './Register.module.css'; // Import the CSS module
 import { useNavigate } from 'react-router-dom';
 
-export function Register() {
+export function Register_Employee() {
   const nav = useNavigate();
 
 
-    var endpoint= "https://5q87zjb5yd.execute-api.us-east-1.amazonaws.com/";
+    var endpoint= "https://5q87zjb5yd.execute-api.us-east-1.amazonaws.com";
     const form = useForm({
-        initialValues: { name: "", email: "", password: "", Company: " " },
+        initialValues: { name: "", email: "", password: "" },
         validate: {
           name: (value: string) => (value.length < 2 ? 'Name must have at least 2 letters' : null),
           email: (value: string) => (/^\S+@\S+\.\S+$/.test(value) ? null : 'Invalid email'),
           password: (value: string) => (value.trim().length === 0 ? ' Password is required' : null),
-          Company: (value: string) => (value.trim().length === 0 ? ' Company is required' : null)
         },
       });
       
-      const onSubmit = async (values: { name: string; email: string; password: string , Company:string}) => {
+      const onSubmit = async (values: { name: string; email: string; password: string }) => {
         const {auth} = await import("./firebase/config"); 
         const {createUserWithEmailAndPassword} = await import("firebase/auth");
         try { 
@@ -37,11 +36,10 @@ export function Register() {
             uid,
             name: values.name,
             email: values.email,
-            Company: values.Company,
           };
           console.log("Payload being sent to API:", payload);
 
-        const response = await fetch(`${endpoint}/Register`, {
+        const response = await fetch(`${endpoint}/Register_Employee`, {
           method: "POST",
           headers: {
             "Content-Type" : "application/json",
@@ -49,9 +47,12 @@ export function Register() {
           body: JSON.stringify(payload ), // Pass the form values directly
         });
         if(response.ok){
-          nav('/Company_Login')
+          nav('/Employee_Login')
 
         }
+
+
+
 
 
 
@@ -74,9 +75,7 @@ const handleError = (errors: typeof form.errors) => {
   if (errors.email) {
     notifications.show({ message: 'Please provide a valid email', color: 'red' });
   }
-  if (errors.company) {
-    notifications.show({ message: 'Company name is required', color: 'red' });
-  }
+
 };
 return (
         <Container size="xs" mt="xl">
@@ -103,12 +102,7 @@ return (
                {...form.getInputProps('password')}
                className={styles.formInput}
                />
-               <TextInput
-               label="Company"
-               placeholder="Your company"
-               {...form.getInputProps('Company')}
-               className={styles.formInput}
-               />
+               
                 <Button type="submit" mt="sm" className={styles.submitButton}>
                   Submit
                 </Button>
@@ -119,4 +113,4 @@ return (
       );
 }
 
-export default Register; 
+export default Register_Employee; 

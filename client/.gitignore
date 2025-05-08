@@ -24,3 +24,17 @@ dist-ssr
 *.sw?
 node_modules
 node_modules
+
+__pycache__/
+.serverless/
+.serverless-wsgi/
+node_modules/
+settings.json
+_distutils_hack/
+pkg_resources/
+flask/
+jinja2/
+werkzeug/
+node_modules
+orginKey
+.serverless/*.zip

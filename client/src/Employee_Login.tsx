@@ -8,14 +8,13 @@ import {
     TextInput,
     Title,
   } from '@mantine/core';
-  import classes from './Company_Login.module.css'; 
-  // used the same css module as the company for styling, due to using same content
+  import classes from './Company_Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
   
-  export function Company_Login() {
+export function Employee_Login() {
     const nav = useNavigate();
 
     const [email, setEmail ]= useState(''); 
@@ -61,7 +60,7 @@ import { useState } from 'react';
   
           <Text ta="center" mt="md">
             Don&apos;t have an account?{' '}
-            <Anchor<'a'>  fw={700} onClick={() => nav('/Register')}>
+            <Anchor<'a'>  fw={700} onClick={() => nav('/Register_Employee')}>
               Register
             </Anchor>
           </Text>
@@ -70,4 +69,4 @@ import { useState } from 'react';
     );
   }
 
-  export default Company_Login
+  export default Employee_Login

@@ -29,12 +29,19 @@ plugins:
   - serverless-wsgi
   - serverless-finch
 
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!**/__pycache__/**'
+    - '**/*.py'
+    - '!node_modules/aws-sdk/**'
+    - '!node_modules/**/aws-sdk/**'
+
 functions:
   api:
     handler: wsgi_handler.handler
     events:
       - httpApi: "*"
-      
     
 custom:
   wsgi:
@@ -42,9 +49,10 @@ custom:
   client:
     bucketName: juulio99bucket
     errorDocument: index.html
+    distributionFolder: client/dist   # This points to your Vite output
 
+ 
     
-
 resources:
   Resources:
     tblname2:
@@ -62,3 +70,4 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: "tblname2"
+
