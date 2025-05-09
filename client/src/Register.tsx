@@ -106,7 +106,7 @@ return (
                <TextInput
                label="Company"
                placeholder="Your company"
-               {...form.getInputProps('Company')}
+               {...form.getInputProps('company')}
                className={styles.formInput}
                />
                 <Button type="submit" mt="sm" className={styles.submitButton}>
