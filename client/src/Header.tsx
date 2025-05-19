@@ -27,9 +27,9 @@ const user = {
 const tabs = [
   { label: 'Home', path: '/' },
   { label: 'Hire Login', path: '/Company_Login' }, 
-  { label: 'Employee Login', path: '/employee-login' }, // Make sure this route exists in App.js
-  {label: 'Actively Hiring', path: '/Company_login'},
-  {label: 'Actively Looking' , path:'employee_login'},
+  { label: 'Employee Login', path: '/Employee_Login' }, // Make sure this route exists in App.js
+  {label: 'Actively Hiring', path: ''},
+  {label: 'Actively Looking' , path:''},
 
 
 ];

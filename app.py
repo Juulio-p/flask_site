@@ -131,6 +131,41 @@ def Register():
     )
 
     return jsonify({"message": "Message saved successfully"}), 200
+
+
+
+
+
+
+
+@app.route('/Register_Employee', methods=['POST'])
+def Register_Employee(): 
+    clientdb = boto3.client('dynamodb' , region_name="us-east-1")
+
+    # Get JSON data from request
+    data = request.json
+    email = data.get('email')
+    name = data.get('name')
+    uid = data.get('uid')
+    print(f"Received uid: {data}, Email: {email} , Name: {name} , uid: {uid} ")
+
+
+
+    if not email  :
+        return jsonify({"error": "Missing required fields"}), 400
+
+    # Insert data into DynamoDB
+    response = clientdb.put_item(
+        TableName='employeeTbl', 
+        Item={
+            'name' : { 'S' : name },
+            'email': {'S': email},
+            'userId': {'S': name} 
+           
+        }
+    )
+
+    return jsonify({"message": "Message saved successfully"}), 200
     
 #******************************************************************
 #******************************************************************

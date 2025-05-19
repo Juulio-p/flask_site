@@ -9,6 +9,7 @@ export function Register_Employee() {
 
 
     var endpoint= "https://5q87zjb5yd.execute-api.us-east-1.amazonaws.com";
+
     const form = useForm({
         initialValues: { name: "", email: "", password: "" },
         validate: {
@@ -21,6 +22,7 @@ export function Register_Employee() {
       const onSubmit = async (values: { name: string; email: string; password: string }) => {
         const {auth} = await import("./firebase/config"); 
         const {createUserWithEmailAndPassword} = await import("firebase/auth");
+        
         try { 
 
           console.log("Registering with:", values.email, values.password);
