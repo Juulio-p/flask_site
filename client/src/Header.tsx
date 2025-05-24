@@ -28,8 +28,9 @@ const tabs = [
   { label: 'Home', path: '/' },
   { label: 'Hire Login', path: '/Company_Login' }, 
   { label: 'Employee Login', path: '/Employee_Login' }, // Make sure this route exists in App.js
-  {label: 'Actively Hiring', path: ''},
-  {label: 'Actively Looking' , path:''},
+  {label: 'Create Posting', path: '/Create_Employee_Post'},
+  {label: 'Active Hiring' , path:'/MockPostCardHire'},
+  {label: 'Actively Looking' , path:'/MockPostCard'},
 
 
 ];
@@ -44,7 +45,7 @@ export function Header() {
       <Container className={classes.mainSection} size="md">
         <Group justify="space-between">
           <Logo />
-          <h1 style={{ fontWeight: 'bolder' }}>EmergenZHire</h1>
+          <h1 style={{ fontWeight: 'bolder' }}>TBL-Hire</h1>
 
           <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
 
