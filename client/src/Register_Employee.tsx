@@ -54,10 +54,6 @@ export function Register_Employee() {
         }
 
 
-
-
-
-
         // bs   CHat code below
       } catch (error: unknown) {
         if (error instanceof Error) {

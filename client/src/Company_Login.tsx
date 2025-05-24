@@ -20,6 +20,7 @@ import { useState } from 'react';
 
     const [email, setEmail ]= useState(''); 
     const [password, setPassword ] = useState(''); 
+    const [errormsg , setErrorMsg] = useState(''); 
 
 
     const on_submit = async () =>   { 
@@ -36,6 +37,16 @@ import { useState } from 'react';
       })
       .catch((error : any) => {
         console.error("Login failed:", error.code, error.message);
+        if (error.code === 'auth/user-not-found') {
+          setErrorMsg('No user found with this email.');
+        } else if (error.code === 'auth/wrong-password') {
+          setErrorMsg('Incorrect password.');
+        } else if (error.code === 'auth/invalid-email') {
+          setErrorMsg('Invalid email format.');
+        } else {
+          setErrorMsg('An unexpected error occurred.');
+        }
+        
 
       });
     }
@@ -58,6 +69,9 @@ import { useState } from 'react';
           <Button fullWidth mt="xl" size="md" onClick={on_submit}>
             Login
           </Button>
+          <Text color='red' mt = 'sm' ta='center'>
+            {errormsg}
+          </Text>
   
           <Text ta="center" mt="md">
             Don&apos;t have an account?{' '}
