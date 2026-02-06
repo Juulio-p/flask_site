@@ -27,7 +27,6 @@ function App() {
                 <Frontpage />
                 <TierCard />
                 <Footer />
-                <ContactUs />
               </>
             }
           />
