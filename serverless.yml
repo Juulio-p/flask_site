@@ -23,66 +23,69 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - { "Fn::GetAtt": ["tblname2", "Arn" ] }
+        - { "Fn::GetAtt": ["tblname2", "Arn"] }
 
 plugins:
   - serverless-wsgi
   - serverless-finch
+  - serverless-domain-manager
 
 package:
   patterns:
-    - '!node_modules/**'
-    - '!**/__pycache__/**'
-    - '**/*.py'
-    - '!node_modules/aws-sdk/**'
-    - '!node_modules/**/aws-sdk/**'
+    - "!node_modules/**"
+    - "!**/__pycache__/**"
+    - "**/*.py"
+    - "!node_modules/aws-sdk/**"
+    - "!node_modules/**/aws-sdk/**"
 
 functions:
   api:
     handler: wsgi_handler.handler
     events:
       - httpApi: "*"
-    
+
 custom:
   wsgi:
     app: app.app
   client:
     bucketName: juulio99bucket
     errorDocument: index.html
-    distributionFolder: client/dist  
+    distributionFolder: client/dist
+  customDomain:
+    domainName: veycuh.com
+    #enabled: false
+    basePath: ""
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+    endpointType: regional
+    apiType: http
+    #this was not allowing stack to deploy, had to specify the api type.
 
- 
-    
 resources:
   Resources:
     tblname2:
-      Type: 'AWS::DynamoDB::Table'
+      Type: "AWS::DynamoDB::Table"
       Properties:
         AttributeDefinitions:
-          -
-            AttributeName: userId
+          - AttributeName: userId
             AttributeType: S
         KeySchema:
-          -
-            AttributeName: userId
+          - AttributeName: userId
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: "tblname2"
     employeeTbl: #second table to hold the employee data
-      Type: 'AWS::DynamoDB::Table'
+      Type: "AWS::DynamoDB::Table"
       Properties:
         AttributeDefinitions:
-          -
-            AttributeName: userId
+          - AttributeName: userId
             AttributeType: S
         KeySchema:
-          -
-            AttributeName: userId
+          - AttributeName: userId
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: "employeeTbl"
-

@@ -1,38 +1,30 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { IconChevronDown } from '@tabler/icons-react';
-import cx from 'clsx';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+//import { IconChevronDown } from '@tabler/icons-react';
+import cx from "clsx";
+
 import {
-  Avatar,
+  //Avatar,
   Burger,
   Container,
   Group,
   Menu,
   Tabs,
-  Text,
+  //Text,
   UnstyledButton,
- 
-} from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import classes from './Header.module.css';
-import Logo from './Logo';
-
-const user = {
-  name: 'Anonymous',
-  email: 'janspoon@fighter.dev',
-  image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-5.png',
-};
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import classes from "./Header.module.css";
+import Logo from "./Logo";
 
 // Define tab labels and their corresponding paths
 const tabs = [
-  { label: 'Home', path: '/' },
-  { label: 'Hire Login', path: '/Company_Login' }, 
-  { label: 'Employee Login', path: '/Employee_Login' }, // Make sure this route exists in App.js
-  {label: 'Create Posting', path: '/Create_Employee_Post'},
-  {label: 'Active Hiring' , path:'/MockPostCardHire'},
-  {label: 'Actively Looking' , path:'/MockPostCard'},
-
-
+  { label: "Home", path: "/" },
+  { label: "Hire Login", path: "/Company_Login" },
+  { label: "Employee Login", path: "/Employee_Login" }, // Make sure this route exists in App.js
+  { label: "Create Posting", path: "/Create_Employee_Post" },
+  { label: "Active Hiring", path: "/MockPostCardHire" },
+  { label: "Actively Looking", path: "/MockPostCard" },
 ];
 
 export function Header() {
@@ -45,27 +37,36 @@ export function Header() {
       <Container className={classes.mainSection} size="md">
         <Group justify="space-between">
           <Logo />
-          <h1 style={{ fontWeight: 'bolder' }}>TBL-Hire</h1>
-
+          <h1
+            style={{
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 900,
+              fontSize: "3.5rem",
+              color: "#111",
+              textAlign: "center",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.2)",
+              marginTop: "2rem",
+            }}
+          >
+            Veycuh Solutions
+          </h1>
           <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
 
           <Menu
             width={260}
             position="bottom-end"
-            transitionProps={{ transition: 'pop-top-right' }}
+            transitionProps={{ transition: "pop-top-right" }}
             onClose={() => setUserMenuOpened(false)}
             onOpen={() => setUserMenuOpened(true)}
             withinPortal
           >
             <Menu.Target>
-              <UnstyledButton className={cx(classes.user, { [classes.userActive]: userMenuOpened })}>
-                <Group gap={7}>
-                  <Avatar src={user.image} alt={user.name} radius="xl" size={20} />
-                  <Text fw={500} size="sm" lh={1} mr={3}>
-                    {user.name}
-                  </Text>
-                  <IconChevronDown size={12} stroke={1.5} />
-                </Group>
+              <UnstyledButton
+                className={cx(classes.user, {
+                  [classes.userActive]: userMenuOpened,
+                })}
+              >
+                <Group gap={7}></Group>
               </UnstyledButton>
             </Menu.Target>
           </Menu>
@@ -78,7 +79,11 @@ export function Header() {
           defaultValue="Home"
           variant="outline"
           visibleFrom="sm"
-          classNames={{ root: classes.tabs, list: classes.tabsList, tab: classes.tab }}
+          classNames={{
+            root: classes.tabs,
+            list: classes.tabsList,
+            tab: classes.tab,
+          }}
           onChange={(value) => {
             const tab = tabs.find((t) => t.label === value);
             if (tab) {

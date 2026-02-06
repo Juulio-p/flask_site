@@ -1,12 +1,12 @@
 {
   "devDependencies": {
+    "serverless-domain-manager": "^7.4.0",
     "serverless-wsgi": "^3.0.4"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
+    "babel-preset-react-app": "^10.1.0",
     "react-router-dom": "^7.1.1",
-    "serverless-domain-manager": "^7.4.0",
     "serverless-finch": "^4.0.4"
   },
   "name": "first_flask",
@@ -18,5 +18,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juulio-p/portfolio_web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Juulio-p/portfolio_web/issues"
+  },
+  "homepage": "https://github.com/Juulio-p/portfolio_web#readme",
   "description": ""
 }
