@@ -1,33 +1,22 @@
-import React from "react";
 import { Button, Space } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+import classes from "./Frontpage.module.css";
 
 const Frontpage: React.FC = () => {
   const nav = useNavigate();
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "60vh",
-        width: "100%",
-        backgroundImage: "url('/workers.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay
-        backgroundBlendMode: "darken", // Blends overlay with image
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <a onClick={() => nav("/contact-us")}>
-          <Button size="l" style={{ width: "250px" }}>
-            Contact Us
-          </Button>
-        </a>
+    <div className={classes.hero}>
+      <div className={classes.heroContent}>
+        <Button
+          size="lg"
+          className={classes.cta}
+          onClick={() => nav("/contact-us")}
+        >
+          Contact Us
+        </Button>
       </div>
+
       <Space h={35} />
     </div>
   );

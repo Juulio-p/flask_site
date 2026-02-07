@@ -1,0 +1,52 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 60svh;
+
+  background-image: url("/workers.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Content layer */
+.heroContent {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+/* Button styling */
+.cta {
+  width: 250px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 70svh;
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 280px;
+  }
+}
