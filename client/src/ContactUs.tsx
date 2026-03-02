@@ -35,7 +35,7 @@ export function ContactUs() {
 
     try {
       const response = await fetch(
-        "https://wribolh5u6.execute-api.us-east-1.amazonaws.com/contact-us",
+        "https://veycuh.com/contact-us",
         {
           method: "POST",
           headers: {

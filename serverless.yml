@@ -56,7 +56,6 @@ custom:
     #enabled: false
     basePath: ""
     stage: ${self:provider.stage}
-    createRoute53Record: true
     endpointType: regional
     apiType: http
     #this was not allowing stack to deploy, had to specify the api type.

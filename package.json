@@ -4,6 +4,7 @@
     "serverless-wsgi": "^3.0.4"
   },
   "dependencies": {
+    "@inquirer/external-editor": "^2.0.3",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^10.1.0",
     "react-router-dom": "^7.1.1",
