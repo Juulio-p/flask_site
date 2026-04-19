@@ -4,7 +4,7 @@ function TierCard() {
   return (
     <>
       <Space h={25} />
-      <h1 style={{ fontWeight: "bold", textAlign: "left" }}>Testimonial's </h1>
+      <h1 style={{ fontWeight: "bold", textAlign: "left" }}> Top Post </h1>
       <br></br>
 
       <ul
