@@ -1,21 +1,14 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import { IconChevronDown } from '@tabler/icons-react';
-import cx from "clsx";
 
 import {
   //Avatar,
-  Burger,
   Container,
   Group,
-  Menu,
   Tabs,
   //Text,
-  UnstyledButton,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import classes from "./Header.module.css";
-import Logo from "./Logo";
 
 // Define tab labels and their corresponding paths
 const tabs = [
@@ -27,13 +20,12 @@ const tabs = [
 
 export function Header() {
   const navigate = useNavigate(); // React Router navigation hook
-  const [opened, { toggle }] = useDisclosure(false);
-  const [userMenuOpened, setUserMenuOpened] = useState(false);
+
 
   return (
     <div className={classes.header}>
       <Container className={classes.mainSection} size="md">
-        <Group justify="space-between">
+        <Group justify="center">
           <h1
             style={{
               fontFamily: "Playfair Display, serif",
@@ -47,55 +39,35 @@ export function Header() {
             TrivialCritique
           </h1>
 
-          <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
-
-          <Menu
-            width={260}
-            position="bottom-end"
-            transitionProps={{ transition: "pop-top-right" }}
-            onClose={() => setUserMenuOpened(false)}
-            onOpen={() => setUserMenuOpened(true)}
-            withinPortal
-          >
-            <Menu.Target>
-              <UnstyledButton
-                className={cx(classes.user, {
-                  [classes.userActive]: userMenuOpened,
-                })}
-              >
-                <Group gap={7}></Group>
-              </UnstyledButton>
-            </Menu.Target>
-          </Menu>
-        </Group>
-      </Container>
+        </Group >
+      </Container  >
 
       {/* Tabs for Navigation */}
       <Container size="md">
+        
         <Tabs
-          defaultValue="Home"
-          variant="outline"
-          visibleFrom="sm"
-          classNames={{
-            root: classes.tabs,
-            list: classes.tabsList,
-            tab: classes.tab,
-          }}
-          onChange={(value) => {
-            const tab = tabs.find((t) => t.label === value);
-            if (tab) {
-              navigate(tab.path); // Navigate to selected tab's path
-            }
-          }}
-        >
-          <Tabs.List>
-            {tabs.map((tab) => (
-              <Tabs.Tab key={tab.label} value={tab.label}>
-                {tab.label}
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
-        </Tabs>
+  defaultValue="Home"
+  variant="outline"
+  visibleFrom="sm"
+  classNames={{
+    list: classes.tabsList,
+    tab: classes.tab,
+  }}
+  onChange={(value) => {
+    const tab = tabs.find((t) => t.label === value);
+    if (tab) navigate(tab.path);
+  }}
+>
+  <div className={classes.tabsWrapper}>
+    <Tabs.List>
+      {tabs.map((tab) => (
+        <Tabs.Tab key={tab.label} value={tab.label}>
+          {tab.label}
+        </Tabs.Tab>
+      ))}
+    </Tabs.List>
+  </div>
+</Tabs>
       </Container>
     </div>
   );

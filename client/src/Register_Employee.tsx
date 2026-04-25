@@ -8,7 +8,7 @@ export function Register_Employee() {
   const nav = useNavigate();
 
 
-    var endpoint= "https://5q87zjb5yd.execute-api.us-east-1.amazonaws.com";
+    var endpoint= "https://wribolh5u6.execute-api.us-east-1.amazonaws.com";
 
     const form = useForm({
         initialValues: { name: "", email: "", password: "" },

@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: blanchedalmond;
+  color: rgb(247, 245, 244);
 
   width: 100%;
-  min-height: 60svh;
+  height: 70svh;
 
   background-image: url("https://c4.wallpaperflare.com/wallpaper/611/354/327/classical-art-jan-matejko-painting-polish-wallpaper-preview.jpg");
   background-size: cover;
@@ -33,6 +33,9 @@
   gap: 10px;
 
   padding: clamp(1rem, 4vw, 3rem);
+}
+.text_hero{
+  padding-top: 90%;
 }
 
 /* Button styling */

@@ -9,9 +9,7 @@ const Frontpage: React.FC = () => {
     <div className={classes.hero}>
       <div className={classes.heroContent}></div>
 
-      <Space h={170} />
-
-      <div>
+      <div className="text_hero">
         <h5>
           A website for all your whimsical writing.
           <br />
