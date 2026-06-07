@@ -1,60 +1,54 @@
 .header {
-  padding-top: var(--mantine-spacing-sm);
-
-  background-color: light-dark(
-    var(--mantine-color-gray-0),
-    var(--mantine-color-dark-6)
-  );
-  border-bottom: 1px solid light-dark(var(--mantine-color-gray-10), transparent);
-  margin-bottom: 10px;
-}
-
-.mainSection {
-  padding-bottom: var(--mantine-spacing-sm);
-}
-.tabsList {
-  
-  &::before {
-    display: none;
-  }
-}
-.tabsWrapper {
-  display: flex;
-  justify-content: center; 
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
+
+.inner {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+}
+
+.logoSection {
+  cursor: pointer;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+color: #8b7355;gvhbffffffffff: 9000000trfgg;YHUGGGGGGGG67
+  margin-top: 2px;
+}
+
+.tabsList {
+  display: flex;
+  gap: 1rem;
+}
+
 .tab {
-  
-  font-weight: 500;
-  height: 38px;
-  background-color: transparent;
-  position: relative;
-  bottom: -1px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  transition: all 0.2s ease;
+}
 
-  &::before,
-  &::after {
-    background-color: light-dark(
-      var(--mantine-color-gray-2),
-      var(--mantine-color-dark-7)
-    ) !important;
-  }
-
-  &:hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-1),
-      var(--mantine-color-dark-5)
-    );
-  }
-
-  &[data-active] {
-    background-color: light-dark(
-      var(--mantine-color-white),
-      var(--mantine-color-dark-7)
-    );
-    border-color: light-dark(
-      var(--mantine-color-gray-2),
-      var(--mantine-color-dark-7)
-    );
-    border-bottom-color: transparent;
-  }
+.tab:hover {
+  color: #8b7355;
 }

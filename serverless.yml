@@ -6,7 +6,7 @@ service: firstapplication
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.11
   stage: ${opt:stage, 'dev'}
 
   iamRoleStatements:
@@ -52,7 +52,7 @@ custom:
     errorDocument: index.html
     distributionFolder: client/dist
   customDomain:
-    domainName: veycuh.com
+    domainName: trivialcritique.com
     #enabled: false
     basePath: ""
     stage: ${self:provider.stage}
