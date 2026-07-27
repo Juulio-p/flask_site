@@ -9,7 +9,7 @@ import Register from "./Register";
 import Register_Employee from "./Register_Employee";
 import Create_Employee_Post from "./Create_Employee_Post";
 import { Header } from "./Header";
-
+import Create_Post from "./Create_Post";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
             element={
               <>
                 <Frontpage />
+
                 <Footer />
               </>
             }
@@ -32,6 +33,7 @@ function App() {
 
           <Route path="/Company_Login" element={<Company_Login />} />
           <Route path="/Employee_Login" element={<Employee_Login />} />
+          <Route path="/create" element={<Create_Post/>} />
 
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/Register" element={<Register />} />

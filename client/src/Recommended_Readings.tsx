@@ -1,8 +1,10 @@
 import { Card, Image, Text, Group, Space } from "@mantine/core";
 
-function TierCard() {
-  return (
-    <>
+
+
+function Recommended_Readings() {
+    return( 
+        <>
       <Space h={25} />
       <h1 style={{ fontWeight: "bold", textAlign: "left" }}> Top Post </h1>
       <br></br>
@@ -90,7 +92,9 @@ function TierCard() {
         </li>
       </ul>
     </>
-  );
+
+
+    );
 }
 
-export default TierCard;
+export default Recommended_Readings;
