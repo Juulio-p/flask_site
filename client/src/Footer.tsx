@@ -1,14 +1,11 @@
 import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Anchor, Group } from '@mantine/core';
 import classes from './Footer.module.css';
-import SmallLogo from './SmallLogo';
+import Logo from './Logo';
 
 const links = [
   { link: '#', label: 'Contact' },
-  { link: '#', label: 'Privacy' },
-  { link: '#', label: 'Blog' },
-  { link: '#', label: 'Store' },
-  { link: '#', label: 'Careers' },
+  { link: '#', label: 'Policy' },
 ];
 
 export function Footer() {
@@ -21,14 +18,14 @@ export function Footer() {
       onClick={(event) => event.preventDefault()}
       size="sm"
     >
-      {link.label}
     </Anchor>
   ));
 
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <SmallLogo/>
+
+        <Logo />
         <Group className={classes.links}>{items}</Group>
 
         <Group gap="xs" justify="flex-end" wrap="nowrap">
@@ -39,7 +36,7 @@ export function Footer() {
             <IconBrandYoutube size={18} stroke={1.5} />
           </ActionIcon>
 
-          <a href='https://www.instagram.com/juulio.__/'> 
+          <a href='https://www.instagram.com/on.the.go.oil.change.sd?igsh=NTc4MTIwNjQ2YQ=='> 
 
           <ActionIcon size="lg" variant="default" radius="xl">
             <IconBrandInstagram size={18} stroke={1.5} />

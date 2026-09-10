@@ -1,54 +1,271 @@
 .header {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #050910;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ========================= INNER ========================= */
 .inner {
-  height: 80px;
-
-  display: flex;
-  align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 120px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.logoSection {
-  cursor: pointer;
+/* ========================= BRAND ========================= */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    cursor: pointer;
 }
 
+.brand:hover {
+    transform: translateY(-1px);
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+/* ========================= LOGO TEXT ========================= */
 .logo {
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
-  font-weight: 900;
-  line-height: 1;
-  color: #1a1a1a;
+    margin: 0;
+    color: #f9f5f5 !important;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* ========================= SUBTITLE ========================= */
 .subtitle {
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #8b7355;
-  margin-top: 2px;
+    margin-top: 5px;
+    color: #ebeff1 !important;
+    font-size: 0.67rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-.tabsList {
-  display: flex;
-  gap: 1rem;
+/* ========================= RIGHT SIDE ========================= */
+.rightSide {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.tab {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #444;
-  transition: all 0.2s ease;
+/* ========================= CONTACT INFO ========================= */
+.contactInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.tab:hover {
-  color: #8b7355;
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #f0eded;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.contactItem svg {
+    color: rgb(87, 116, 209);
+    flex-shrink: 0;
+}
+
+.contactItem:hover {
+    color: #b8a121;
+}
+
+/* ========================= SOCIAL ICONS ========================= */
+.socialGroup {
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialIcon {
+    color: #f0eded;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.socialIcon:hover {
+    color: #c79e38;
+    background: rgba(199, 158, 56, 0.09);
+    transform: translateY(-2px);
+}
+
+/* ========================= TABLET ========================= */
+@media (max-width: 992px) {
+    .inner {
+        height: 70px;
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 1.45rem;
+    }
+
+    .subtitle {
+        font-size: 0.56rem;
+        letter-spacing: 1.8px;
+    }
+
+    .contactInfo {
+        gap: 10px;
+    }
+
+    .contactItem {
+        font-size: 0.7rem;
+    }
+
+    .socialIcon {
+        width: 31px;
+        height: 31px;
+    }
+}
+
+/* ========================= MOBILE ========================= */
+@media (max-width: 700px) {
+    .inner {
+        height: 62px;
+        min-height: 62px;
+        padding: 6px 12px;
+    }
+
+    .brand {
+        gap: 8px;
+        min-width: 0;   /* allow brand to shrink instead of forcing overflow */
+        flex-shrink: 1;
+    }
+
+    .brandText {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+        line-height: 1;
+        letter-spacing: -0.3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .subtitle {
+        margin-top: 3px;
+        font-size: 0.48rem;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .rightSide {
+        gap: 4px;
+        flex-shrink: 0; /* right side keeps its size; brand shrinks instead */
+    }
+
+    .contactInfo {
+        gap: 4px;
+    }
+
+    /* Show both phone and email, icon-only (still fully functional tel:/mailto: links) */
+    .contactItem span {
+        display: none;
+    }
+
+    .contactItem {
+        padding: 2px;
+    }
+
+    .contactItem svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .socialGroup {
+        gap: 0;
+        padding-left: 6px;
+    }
+
+    .socialIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .socialIcon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ========================= VERY SMALL PHONES ========================= */
+@media (max-width: 430px) {
+    .inner {
+        height: 56px;
+        min-height: 56px;
+        padding: 5px 9px;
+    }
+
+    .brand {
+        gap: 6px;
+    }
+
+    .logo {
+        font-size: 1.08rem;
+    }
+
+    /* Hide subtitle on very small phones */
+    .subtitle {
+        display: none;
+    }
+
+    .contactItem svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .socialGroup {
+        padding-left: 5px;
+        border-left: none;
+    }
+
+    .socialIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .socialIcon svg {
+        width: 18px;
+        height: 18px;
+    }
 }

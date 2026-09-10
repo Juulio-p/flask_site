@@ -9,7 +9,7 @@ const Logo: React.FC = () => (
     }}
   >
     <img
-      src="/Logo.png"
+      src="/Logo_zoom_out.png"
       alt="Logo"
       style={{
         width: "110px",

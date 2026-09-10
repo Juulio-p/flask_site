@@ -1,72 +1,114 @@
 import { useNavigate } from "react-router-dom";
+import { Group, Text, ActionIcon } from "@mantine/core";
+
 import {
-  Container,
-  Group,
-  Tabs,
-  Button,
-  Text,
-} from "@mantine/core";
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconPhone,
+  IconMail,
+} from "@tabler/icons-react";
 
 import classes from "./Header.module.css";
-
-const tabs = [
-  { label: "Home", path: "/" },
-  { label: "Explore", path: "/Explore" },
-  { label: "Write", path: "/Create_Employee_Post" },
-];
+import Logo from "./Logo";
 
 export function Header() {
   const navigate = useNavigate();
 
   return (
     <header className={classes.header}>
-      <Container size="lg" className={classes.inner}>
-        <Group justify="space-between" align="center">
-          <div
-            className={classes.logoSection}
-            onClick={() => navigate("/")}
-          >
-            <Text className={classes.logo}>
-              TrivialCritique
-            </Text>
+      <div className={classes.inner}>
+
+        {/* Brand */}
+        <div
+          className={classes.brand}
+          onClick={() => navigate("/")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              navigate("/");
+            }
+          }}
+        >
+          <Logo />
+
+          <div className={classes.brandText}>
+            <h1 className={classes.logo}>On The Go</h1>
 
             <Text className={classes.subtitle}>
-              Writing & Discourse
+              MOBILE OIL CHANGE
             </Text>
           </div>
+        </div>
 
-          <Group gap="xl" visibleFrom="sm">
-            <Tabs
-              defaultValue="Home"
-              variant="unstyled"
-              onChange={(value) => {
-                const tab = tabs.find((t) => t.label === value);
-                if (tab) navigate(tab.path);
-              }}
+        {/* Right Side */}
+        <Group
+          gap="lg"
+          className={classes.rightSide}
+          wrap="nowrap"
+        >
+
+          {/* Contact Information */}
+          <div className={classes.contactInfo}>
+
+            <a
+              href="tel:6194554167"
+              className={classes.contactItem}
             >
-              <Tabs.List className={classes.tabsList}>
-                {tabs.map((tab) => (
-                  <Tabs.Tab
-                    key={tab.label}
-                    value={tab.label}
-                    className={classes.tab}
-                  >
-                    {tab.label}
-                  </Tabs.Tab>
-                ))}
-              </Tabs.List>
-            </Tabs>
+              <IconPhone size={16} />
 
-            <Button
+              <span>(619) 455- 4167</span>
+            </a>
+
+            <a
+              href="mailto:otg.oilservices@gmail.com"
+              className={classes.contactItem}
+            >
+              <IconMail size={16} />
+
+              <span>otg.oilservices@gmail.com</span>
+            </a>
+
+          </div>
+
+          {/* Social Media */}
+          <Group
+            gap={3}
+            className={classes.socialGroup}
+            wrap="nowrap"
+          >
+            <ActionIcon
+            size={28}
+            
+              component="a"
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="subtle"
               radius="xl"
-              variant="filled"
-              onClick={() => navigate("/Company_Login")}
+              className={classes.socialIcon}
+              aria-label="Facebook"
             >
-              Login
-            </Button>
+              <IconBrandFacebook size={19} />
+            </ActionIcon>
+
+            <ActionIcon
+              component="a"
+              href="https://www.instagram.com/on.the.go.oil.change.sd?igsh=NTc4MTIwNjQ2YQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="subtle"
+              radius="xl"
+              className={classes.socialIcon}
+              aria-label="Instagram"
+            >
+              <IconBrandInstagram size={19} />
+            </ActionIcon>
+
           </Group>
+
         </Group>
-      </Container>
+      </div>
     </header>
   );
 }

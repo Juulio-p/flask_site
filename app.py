@@ -9,18 +9,102 @@ ch.setLevel(logging.DEBUG) # can change from debugg to something else like .info
 formatter = logging.Formatter('%(asctime)s - %(name)s %(funcName)s():%(lineno)i: - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+import uuid  # add this import at the top of your file
 
 
 import boto3
 from botocore.exceptions import ClientError
-clientdb = boto3.client('dynamodb' , region_name="us-east-1")
 
+clientdb = boto3.client('dynamodb' , region_name="us-east-1")
 
 
 app = Flask(__name__, static_folder="client/dist", static_url_path="/") 
 
 
-# Make the route for the /contact-us
+
+
+@app.route('/Booking', methods=['POST'])
+def Booking():
+
+    clientdb = boto3.client(
+        'dynamodb',
+        region_name='us-east-1'
+    )
+
+    data = request.json
+
+    name = data.get('name')
+    email = data.get('email')
+    vehicle = data.get('vehicle')
+    message = data.get('message')
+    service_address = data.get('serviceAddress')
+    phoneNumber = data.get('phoneNumber')
+    availability = data.get('availability')
+    referral = data.get('referral')
+
+    print("Received booking:")
+    print(f"Name: {name}")
+    print(f"Email: {email}")
+    print(f"Vehicle: {vehicle}")
+    print(f"Address: {service_address}")
+    print(f"Phone Number: {phoneNumber}")
+
+    # Required fields
+    if not name or not email or not vehicle or not service_address:
+        return jsonify({
+            "error": "Missing required fields"
+        }), 400
+
+
+
+    # Insert booking into DynamoDB
+    response = clientdb.put_item(
+        TableName='tblname2',
+        Item={
+            'userId': {
+                'S': str(uuid.uuid4())
+            },
+
+            'email': {
+                'S': email
+            },
+
+            'name': {
+                'S': name
+            },
+
+            'vehicle': {
+                'S': vehicle
+            },
+
+            'message': {
+                'S': message or ''
+            },
+            'serviceAddress': {
+                'S': service_address
+            },
+            'phoneNumber': {
+                'S': phoneNumber or ''
+            },
+            'availability': {
+                'S': availability or ''
+            },
+
+            'referral': {
+                'S': referral
+            },
+
+        }
+    )
+
+    return jsonify({
+        "message": "Booking saved successfully"
+    }), 200
+
+
+
+############ for booking page 
+
 
 
 

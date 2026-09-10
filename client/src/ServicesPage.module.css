@@ -1,0 +1,78 @@
+.services {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.heading {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.subheading {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+
+  color: #666;
+}
+
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+
+  gap: 30px;
+}
+
+
+.card {
+  padding: 30px;
+
+  border: 1px solid rgba(0,0,0,.06);
+
+  transition: transform .25s ease,
+              box-shadow .25s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+
+.title {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+
+  letter-spacing: 1px;
+}
+
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 800;
+
+  color: #c79e38;
+}
+
+
+.description {
+  color: #555;
+  line-height: 1.6;
+}
+
+
+.list {
+  padding-left: 20px;
+  color: #444;
+}
+
+.list li {
+  margin-bottom: 8px;
+}

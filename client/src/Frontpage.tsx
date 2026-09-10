@@ -7,55 +7,57 @@ const Frontpage: React.FC = () => {
 
   return (
     <section className={classes.hero}>
-      <div className={classes.overlay}></div>
+      <div className={classes.overlay} />
 
       <Container size="lg" className={classes.inner}>
         <div className={classes.content}>
-          <p className={classes.badge}>Whimsical Writing & Thought</p>
+          <div className={classes.badge}>
+            <span className={classes.badgeLine} />
+            Premium Mobile Auto Service
+          </div>
 
-          <h1 className={classes.title}>
-            A place for literature,
-            <span className={classes.highlight}>
-              {" "}
-              philosophy
-            </span>
-            , and political discourse.
-          
-          </h1>
-           <h5 className={classes.subtitle}>
-  Discourse and feedback are highly encouraged.
-</h5>
-          
-          
+          <h3 className={classes.title}>
+            Expert Car Care.
+            <br />
+            <span className={classes.highlight}>Delivered to You.</span>
+          </h3>
 
+          <p className={classes.subtitle}>
+            Professional oil changes 
+            brought directly to your driveway, home, or workplace.
+          </p>
+
+          <div className={classes.serviceNote}>
+            <span className={classes.noteLine} />
+            <span>Convenient. Professional. On Your Schedule.</span>
+          </div>
 
           <div className={classes.actions}>
             <Button
               radius="xl"
-              size="md"
-              color="#8c6b17"
+              size="lg"
               className={classes.primaryBtn}
-              onClick={() => nav("/explore")}
-              c="white"
+              onClick={() => nav("/Booking")}
             >
-              Explore Writing
+              Book Your Service
             </Button>
 
             <Button
               variant="outline"
               radius="xl"
-              size="md"
-              c="white"
-              color= "#8c6b17"
-
-
+              size="lg"
               className={classes.secondaryBtn}
-              onClick={() => nav("/create")}
+              onClick={() => nav("/ServicesPage")}
             >
-              Start Writing
+              View Services
             </Button>
           </div>
-          
+          <br></br>
+          <div className={classes.subtitle}>
+            <span>✓ Professional Service</span>
+            <span>✓ We Come To You</span>
+            <span>✓ Convenient Scheduling</span>
+          </div>
         </div>
       </Container>
     </section>
